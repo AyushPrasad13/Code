@@ -1,0 +1,42 @@
+import java.util.*;
+
+class Student {
+    private String name;
+    private int marks;
+
+    public Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Marks: " + marks;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Ayush", 85));
+        students.add(new Student("Priya", 92));
+        students.add(new Student("Rahul", 75));
+        students.add(new Student("Neha", 89));
+        students.add(new Student("Amit", 78));
+
+        students.sort(Comparator.comparingInt(Student::getMarks));
+
+        System.out.println("Sorted Students by Marks:");
+        for (Student s : students) {
+            System.out.println(s);
+        }
+    }
+}
